@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.sbx</groupId>
+    <artifactId>scs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>SCS</name>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <hibernate.version>5.2.10.Final</hibernate.version>
+        <mysql.version>5.1.39</mysql.version>
+        <javaee.version>7.0</javaee.version>
+        <jsf-api.version>2.1</jsf-api.version>
+        <jsf-impl.version>2.1.3</jsf-impl.version>
+        <cdi.version>2.0</cdi.version>
+        <primefaces.version>6.1</primefaces.version>
+        <gf.home.directory>/home/isilme/local_apps/glassfish4</gf.home.directory>
+        <gf.user>admin</gf.user>
+        <gf.password>admin</gf.password>
+        <gf.domain.name>domain1</gf.domain.name>
+        <gf.hostname>localhost</gf.hostname>
+        <gf.admin.port>4848</gf.admin.port>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${jsf-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.faces/jsf-impl -->
+        <dependency>
+            <groupId>com.sun.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${jsf-impl.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.enterprise/cdi-api -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${cdi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>scs</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.glassfish.maven.plugin</groupId>
+                <artifactId>maven-glassfish-plugin</artifactId>
+                <configuration>
+                    <terse>false</terse>
+                    <echo>true</echo>
+                    <debug>true</debug>
+                    <glassfishDirectory>${gf.home.directory}</glassfishDirectory>
+                    <user>${gf.user}</user>
+                    <adminPassword>${gf.password}</adminPassword>
+                    <domain>
+                        <name>${gf.domain.name}</name>
+                        <host>${gf.hostname}</host>
+                        <adminPort>${gf.admin.port}</adminPort>
+                    </domain>
+                    <components>
+                        <component>
+                            <name>${project.artifactId}</name>
+                            <artifact>${project.build.directory}/${project.build.finalName}.war</artifact>
+                        </component>
+                    </components>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <ejbVersion>3.1</ejbVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>6.0</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
