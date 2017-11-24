@@ -1,0 +1,14 @@
+org\owndev\scs\common\DBObject.class
+org\owndev\scs\service\ObjectService.class
+org\owndev\scs\service\impl\TeacherService.class
+org\owndev\scs\entity\Teacher.class
+org\owndev\scs\common\Identifiable.class
+org\owndev\scs\controllers\MainViewController.class
+org\owndev\scs\dao\Dao.class
+org\owndev\scs\dao\impl\TeacherDao.class
+org\owndev\scs\config\ScsMvcConfig.class
+org\owndev\scs\entity\Student.class
+org\owndev\scs\entity\Group.class
+org\owndev\scs\config\ScsWebAppInitializer.class
+org\owndev\scs\config\DatabaseConfig.class
+org\owndev\scs\common\Named.class

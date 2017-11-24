@@ -1,0 +1,14 @@
+D:\private\dev\scs\src\main\java\org\owndev\scs\dao\Dao.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\dao\impl\TeacherDao.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\entity\Group.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\entity\Teacher.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\service\ObjectService.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\config\DatabaseConfig.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\controllers\MainViewController.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\common\Named.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\common\Identifiable.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\config\ScsMvcConfig.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\config\ScsWebAppInitializer.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\entity\Student.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\common\DBObject.java
+D:\private\dev\scs\src\main\java\org\owndev\scs\service\impl\TeacherService.java
